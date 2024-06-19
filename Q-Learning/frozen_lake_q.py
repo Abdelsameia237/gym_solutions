@@ -53,8 +53,8 @@ def run(episodes, is_training = True, render = False):
     sum_rewards = np.zeros(episodes)
     for t in range(episodes):
         sum_rewards[t] = np.sum(rewards_per_episode[max(0, t-100):(t+1)])
-    plt.plot(sum_rewards)
-    plt.savefig('frozenlake8x8.png') if is_training
+    if is_training:
+        plt.savefig('frozenlake8x8.png')
 
     if is_training:
         f= open ("frozenlake8x8.pkl","wb")
